@@ -4,12 +4,12 @@ const { stdin: input, stdout: output } = require("node:process");
 
 const rl = readline.createInterface({ input, output });
 
-let guessCount
+let guessCount;
 
 function gameStart() {
   rl.question(`Want to play Higher or Lower?`, (answer) => {
     if (answer == "yes") {
-       guessCount = 1
+      guessCount = 1;
       console.log(
         `Nice! guess a number (1-100) and I'll tell you if you need to guess higher or lower.`
       );
@@ -30,11 +30,8 @@ function randomNumber() {
   return number;
 }
 
-
-
 function playerGuess() {
   rl.question(`What's your pick?`, (guess) => {
-    
     if (guessCount < 3) {
       if (guess < number && guess > 0) {
         guessCount++;
@@ -50,8 +47,8 @@ function playerGuess() {
         console.log(`You Win!`);
         gameStart();
       } else {
-        console.log(`Please choose from 1 - 100!`)
-        playerGuess()
+        console.log(`Please choose from 1 - 100!`);
+        playerGuess();
       }
     } else if (guessCount === 3) {
       console.log(`You Lose!`);
